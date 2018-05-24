@@ -36,7 +36,8 @@ public class PhotoQuiz {
 		int a = 3;
 		String age = JOptionPane.showInputDialog("How old is this rabbit?");
 		// 7. print "CORRECT" if the user gave the right answer
-		if(age.equals(a)) {
+		int number = Integer.parseInt(age);
+		if(number == a) {
 		JOptionPane.showMessageDialog(null, "Correct!");
 		}
 		// 8. print "INCORRECT" if the answer is wrong
@@ -47,7 +48,9 @@ public class PhotoQuiz {
 		// this until step 12)
 		quizWindow.remove(url);
 		// 10. find another image and create it (might take more than one line of code)
-		Component bunny2; 
+	 
+		//Component bunny2; 
+		
 		Component url2 = createImage("https://cdn.images.express.co.uk/img/dynamic/128/590x/Rabbit-568411.jpg");
 		// 11. add the second image to the quiz window
 		quizWindow.add(url2);
@@ -57,8 +60,12 @@ public class PhotoQuiz {
 		String cute = JOptionPane.showInputDialog("How cute is this rabbit on a scale of 1 to 10?");
 		// 14+ check answer, say if correct or incorrect, etc.
 		int cuteness = 100;
-		if(cute.equals(cuteness)) {
+		int string = Integer.parseInt(cute);
+		if(string == cuteness) {
 			JOptionPane.showMessageDialog(null, "Correct!");
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "Incorrect!");
 		}
 	}
 
