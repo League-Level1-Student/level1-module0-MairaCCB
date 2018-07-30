@@ -1,3 +1,4 @@
+
 /*
  *    Copyright (c) The League of Amazing Programmers 2013-2017
  *    Level 1
@@ -15,50 +16,92 @@ import javax.swing.JPanel;
 
 public class BodyPartQuiz {
 
-	// 0. You can use the celebrity photos we have placed in the default java package,  
-	// or if you prefer, get celebrity photos from the Internet, place them in the default
+	// 0. You can use the celebrity photos we have placed in the default java
+	// package,
+	// or if you prefer, get celebrity photos from the Internet, place them in the
+	// default
 	// package, and change the names below.
-	
+
 	String firstImage = "src/arnold.jpeg";
 	String secondImage = "src/leonardo.jpeg";
 	String thirdImage = "src/morgan.jpeg";
 	String fourthImage = "src/jack.jpeg";
-	
+
 	JFrame window = new JFrame();
 	JPanel panel = new JPanel();
-
 
 	private void startQuiz() {
 
 		// 1. Make an int variable to hold the score.
-
+		int score = 0;
 		// 2. Set the size of the window in the initializeGui() method below
 
-		for (int i = 0; i < 4; i++) {
-			
+		for (int i = 0; i < 3; i++) {
+
 			// 4. Ask the user who this person is and store their answer
-			String guess= JOptionPane.showInputDialog("who is this?");
-			
+			String guess1 = JOptionPane.showInputDialog("who is this?");
+
 			// 5. Check their answer. If they guessed correctly:
 			// -- Tell them they are right and increase the score by 1
 
+			// image one
+
+			if (guess1.equals("arnold")) {
+				JOptionPane.showMessageDialog(null, "You are correct!");
+				score += 1;
+				// JOptionPane.showMessageDialog(null, "Your current score is" + score);
+			}
 			// 6. Otherwise:
 			// -- Tell them they are wrong and who the person is
-
+			else {
+				JOptionPane.showMessageDialog(null, "You are wrong! The correct answer is arnold.");
+			}
 			// 7. Use the showNextImage() method below to get the next image
 			showNextImage();
-		    // 8. Show them their current score
-			
+			// 8. Show them their current score
+			JOptionPane.showMessageDialog(null, "your score is " + score);
 			// 9. .... repeat for all your images.....
 
+			// image two
+			String guess2 = JOptionPane.showInputDialog("who is this?");
 
+			if (guess2.equals("leonardo")) {
+				JOptionPane.showMessageDialog(null, "You are correct!");
+				score += 2;
+			} else {
+				JOptionPane.showMessageDialog(null, "You are wrong! The correct answer is leonardo.");
+			}
+			showNextImage();
+			JOptionPane.showMessageDialog(null, "your score is " + score);
+			// image three
+			String guess3 = JOptionPane.showInputDialog("who is this?");
+
+			if (guess3.equals("morgan")) {
+				JOptionPane.showMessageDialog(null, "You are correct!");
+				score += 3;
+			} else {
+				JOptionPane.showMessageDialog(null, "You are wrong! The correct answer is morgan.");
+			}
+			showNextImage();
+			JOptionPane.showMessageDialog(null, "your score is " + score);
+			// image four
+			String guess4 = JOptionPane.showInputDialog("who is this?");
+
+			if (guess4.equals("jack")) {
+				JOptionPane.showMessageDialog(null, "You are correct!");
+				score += 4;
+			} else {
+				JOptionPane.showMessageDialog(null, "You are wrong! The correct answer is jack.");
+			}
+			JOptionPane.showMessageDialog(null, "Your final score is " + score);
+			showNextImage();
 		}
 
 	}
 
 	public void showNextImage() {
 		panel.removeAll();
-		panel.add(getNextImage());		
+		panel.add(getNextImage());
 		window.setVisible(true);
 	}
 
@@ -73,12 +116,12 @@ public class BodyPartQuiz {
 		imageIterator = imageList.iterator();
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.add(panel);
-		
-		// 3. Change the size of the window so that you can only see part of the image.		
-		window.setSize(500,500);
-		
+
+		// 3. Change the size of the window so that you can only see part of the image.
+		window.setSize(500, 100);
+
 		showNextImage();
-		
+
 	}
 
 	private JLabel loadImage(String fileName) {
